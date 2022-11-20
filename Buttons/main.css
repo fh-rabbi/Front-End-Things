@@ -1,0 +1,62 @@
+body{
+   display: grid;
+   place-items: center;
+   height: 100vh;
+   background: #666;
+}
+
+button{
+   height: 60px;
+   width: 200px;
+   border-radius: 8px;
+   background: #333;
+   border: 2px solid #999;
+   color: white;
+   position: relative;
+}
+
+button:hover{
+   background: linear-gradient(
+        90deg,
+        #f9d923,
+        #00a19d,
+        #0c87b7,
+        #cb49ff,
+        #ff6666,
+        #f9d923
+    );
+   border: transparent;
+   z-index: 1;
+   background-size: 400%;
+   animation: glow 12s linear infinite;
+}
+
+@keyframes glow {
+
+    from {
+        background-position: 0%;
+    }
+
+    to {
+        background-position: 400%;
+    }
+
+}
+
+button::before{
+   content: '';
+   position: absolute;
+   background: inherit;
+   top: -10px;
+   bottom: -1px;
+   right: -1px;
+   left: -1px;
+   opacity: 0;
+   filter: blur(36px);
+   /* transition: .4s ease-out; */
+}
+
+button:hover::before{
+   opacity: 1; 
+    z-index: -1;
+}
